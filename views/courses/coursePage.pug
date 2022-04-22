@@ -1,0 +1,6 @@
+extends ../layout 
+
+block content
+    h1= course.subject + " " + course.title + " " + course.section
+    if user
+        if user.role == "professor"
