@@ -1,0 +1,18 @@
+extends ../layout 
+
+block content
+    h1 Add New Events To Course 
+    if user
+        h5 Add new Events
+            form(method="post", action="/courses/events", enctype='multipart/form-data')
+                .form-group
+                    label Course Unique ID: 
+                    input.form-control(name="course_id", type="number", placeholder='Course Unique ID')
+                .form-group
+                    label Event Name: 
+                    input.form-control(name="event_name", type="text", placeholder='Event Name')
+                .form-group
+                    label Event File: 
+                    input.form-control(name="event_file", type="file", placeholder='Select a file')
+                    | Select a file 
+                input.btn.btn-outline-dark(type="submit", value="Submit")

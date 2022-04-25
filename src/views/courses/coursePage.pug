@@ -1,0 +1,14 @@
+extends ../layout 
+
+block content
+    //h1= course.subject + " " + course.title + " " + course.section
+    h1
+    if user
+        .card-columns
+            each course, i in courses
+                .card.border-dark.mb-3(style='max-width: 18rem;')
+                    .card-header #{course.subject}
+                    .card-body.text-dark
+                        h5.card-title=  course.title
+                        a.card-link(href='/courses/' + course.cid + '/' + course.event_name)
+                            | #{course.event_name}
