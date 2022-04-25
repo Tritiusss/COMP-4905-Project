@@ -1,0 +1,6 @@
+extend layout 
+
+block content
+    h1 #{title}
+    if user
+        h4.page-header= user.surname + ' ' + user.given_name
