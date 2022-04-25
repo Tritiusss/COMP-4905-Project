@@ -1,9 +1,0 @@
-extends ../layout 
-
-block content
-    h1 Join Course 
-    form(method="post", action="/courses/join")
-        .form-group 
-            lable Course Unique ID: 
-            input.form-control(name="cid", type="text", placeholder='Enter unique course id to join course')
-        input.btn.btn-outline-dark(type="submit", value="Submit")

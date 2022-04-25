@@ -1,7 +1,0 @@
-extends ../layout 
-
-block content
-    h1 My Register Course
-    ul.list-group-item
-        each course, i in courses
-            a.list-group-item.list-group-item-action.list-group-item-light(href="/courses/" + course.cid)= course.subject + " " + course.title + " " + course.section
