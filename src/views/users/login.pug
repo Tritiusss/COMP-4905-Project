@@ -1,0 +1,12 @@
+extends ../layout 
+
+block content
+    h1 Login
+    form(method="post", action="/users/login")
+        .form-group
+            label Unique Login id: 
+            input.form-control(name="username", type="number", placeholder='Unique Id')
+        .form-group
+            label Password: 
+            input.form-control(name="password", type="password", placeholder='Password')
+        input.btn.btn-outline-dark(type="submit", value="Submit")

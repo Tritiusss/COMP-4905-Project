@@ -1,0 +1,12 @@
+extends ../layout 
+
+block content
+    h1 PList
+    form(method="post", action="/courses/atlist")
+        .form-group 
+            label Course Id: 
+            input.form-control(name="course_id", type="number", placeholder='Course Unique ID')
+        .form-group 
+            label Personalized list name: 
+            input.form-control(name="list_name", type="text", placeholder='List Name')
+        input.btn.btn-outline-dark(type="submit", value="Submit")

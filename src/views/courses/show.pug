@@ -1,0 +1,32 @@
+extends ../layout 
+
+block content
+    if user
+        h1
+        embed(src="/upload/"+ event.event_file, type='application/pdf', frameborder='0', scrolling='auto', height='1000', width='100%', alt=event.event_file)
+
+        each comment, i in comments 
+            //label= comment.given_name + user.surname + ': '
+            .container
+                blockquote.blockquote
+                    p.mb-0
+                        | #{comment.comment_content}
+                    footer.blockquote-footer
+                        | #{comment.given_name + ' ' + comment.surname}
+                        if user.role == 'professor'
+                            cite(title='Source Title') #{' #' + comment.comment_id}
+                        else 
+                            cite(title='Source Title') #{' @' + comment.uid}
+        form(method="post", action="/courses/show")
+            .form-group 
+                label(for='exampleFormControlTextarea1') Comments 
+                textarea#exampleFormControlTextarea1.form-control(rows='3', name="comment_content")
+            if user.role == 'professor'
+                .form-group 
+                    label Delete comment with #
+                    input.form-control(name="delete", type="number")
+            .form-group 
+                input.form-control(name="cid", type="hidden", value=event.cid)
+            .form-group 
+                input.form-control(name="event_name", type="hidden", value=event.event_name)
+            input.btn.btn-outline-dark(type="submit", value="Submit")

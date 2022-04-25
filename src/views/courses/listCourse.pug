@@ -1,0 +1,16 @@
+extends ../layout 
+
+block content
+    h1 My Register Course
+    ul.list-group-item
+        .dropdown 
+            button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                | Default 
+            .dropdown-menu(aria-labelledby='dropdownMenuButton')
+                each list, i in lists 
+                    a.dropdown-item(href='/courses/registerCourse/' + list.list_name) #{list.list_name}
+        if PLists 
+            each PList, i in PLists 
+                a.list-group-item.list-group-item-action.list-group-item-light(href="/courses/" + PList.cid)= PList.subject + " " + PList.title + " " + PList.section
+        else 
+            li No Course in this List
